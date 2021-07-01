@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+#timer-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+
+    .value {
+      font-size: 75px;
+      padding: 20px;
+      background-color: black;
+      color: blanchedalmond;
+      border-radius: 10px;
+    }
+
+    .label {
+      margin-top: 10px;
+      font-size: 25px;
+    }
+  }
+}

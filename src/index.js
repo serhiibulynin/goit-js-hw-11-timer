@@ -1,11 +1,19 @@
 import './sass/main.scss';
 
 
+        
 class CountdownTimer {
     
-    constructor({ selector,targetDate }) {
+
+    constructor({ selector,targetDate}) {
         this.targetDate = targetDate;
         this.selector = selector;
+        this.refs = {
+            days : document.querySelector(`${this.selector} [data-value="days"]`),
+            hours : document.querySelector(`${this.selector} [data-value="hours"]`),
+            mins : document.querySelector(`${this.selector} [data-value="mins"]`),
+            secs : document.querySelector(`${this.selector} [data-value="secs"]`),
+        }
         this.startFaceClock();
         this.start();
     };
@@ -45,27 +53,23 @@ class CountdownTimer {
         return String(value).padStart(2, 0);
     }
 
-    updateTimer( days, hours, mins, secs) {
-        const daysRef = document.querySelector(`${this.selector} [data-value="days"]`);
-        daysRef.textContent = days;
-        const hoursRef = document.querySelector(`${this.selector} [data-value="hours"]`);
-        hoursRef.textContent = hours;
-        const minsRef = document.querySelector(`${this.selector} [data-value="mins"]`);
-        minsRef.textContent = mins;
-        const secsRef = document.querySelector(`${this.selector} [data-value="secs"]`);
-        secsRef.textContent = secs;
+    updateTimer(days, hours, mins, secs) {
+        this.refs.days.textContent = days;
+        this.refs.hours.textContent = hours;
+        this.refs.mins.textContent = mins;
+        this.refs.secs.textContent = secs;
         if (+days === 0 || +days === 1) {
-            daysRef.nextElementSibling.textContent = "Day";
-        } else (daysRef.nextElementSibling.textContent = "Days");
+            this.refs.days.nextElementSibling.textContent = "Day";
+        } else (this.refs.days.nextElementSibling.textContent = "Days");
         if (+hours === 0 || +hours === 1) {
-            hoursRef.nextElementSibling.textContent = "Hour";
-        } else (hoursRef.nextElementSibling.textContent = "Hours");
+            this.refs.hours.nextElementSibling.textContent = "Hour";
+        } else (this.refs.hours.nextElementSibling.textContent = "Hours");
         if (+mins === 0 || +mins === 1) {
-            minsRef.nextElementSibling.textContent = "Minute";
-        } else (minsRef.nextElementSibling.textContent = "Minutes");
+            this.refs.mins.nextElementSibling.textContent = "Minute";
+        } else (this.refs.mins.nextElementSibling.textContent = "Minutes");
         if (+secs === 0 || +secs === 1) {
-            secsRef.nextElementSibling.textContent = "Second";
-        } else (secsRef.nextElementSibling.textContent = "Seconds");
+            this.refs.secs.nextElementSibling.textContent = "Second";
+        } else (this.refs.secs.nextElementSibling.textContent = "Seconds");
     }
 };
 
